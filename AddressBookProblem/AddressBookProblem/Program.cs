@@ -10,7 +10,7 @@
            AddressBook addressBook = new AddressBook();
             Console.WriteLine("Please Enter the Information");
             bool check = true;
-            Console.WriteLine("1.Display \n 2.Edit \n");
+            Console.WriteLine("1.Display\n2.Edit\n3.Delete\n4.Add Multiple person\n");
 
             while (check)
             {
@@ -29,6 +29,15 @@
                        
                         addressBook.Update();
                         break;
+                    case 3:
+                        Console.WriteLine("Delete Item");
+                        addressBook.Delete();
+                        break;
+                    case 4:
+                        Console.WriteLine("Add multiple contact");
+                        addressBook.Delete();
+                        break;
+
                     case 0:
                         check = false; break;
                 }

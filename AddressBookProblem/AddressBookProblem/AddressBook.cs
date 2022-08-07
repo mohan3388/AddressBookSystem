@@ -138,5 +138,32 @@ namespace AddressBookProblem
                 Display();
             }
         }
+        public void Delete()
+        {
+            Contact d = new Contact();
+            Console.WriteLine("Enter First Name");
+            string name = Convert.ToString(Console.ReadLine());
+            foreach (var contact in addContact)
+            {
+                if (contact.FirstName.Equals(name))
+                {
+                    d = contact;
+                }
+            }
+            addContact.Remove(d);
+            Display();
+
+        }
+        public void AddMultipleContacts()
+        {
+            Console.WriteLine("Enter the number of contacts to be added: ");
+            int numberOfContacts = Convert.ToInt32(Console.ReadLine());
+            while (numberOfContacts > 0)
+            {
+                AddContact();
+                numberOfContacts--;
+            }
+        }
+
     }
 }
