@@ -164,6 +164,16 @@ namespace AddressBookProblem
                 numberOfContacts--;
             }
         }
-
+          public bool NameExists(string name)
+        {
+            foreach (var dictionary in dictName.Keys)
+            {
+                if (dictionary.Equals(name))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
