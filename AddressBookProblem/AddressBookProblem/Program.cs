@@ -6,7 +6,7 @@
         {
             Console.WriteLine("Enter Details");
             AddressBook addressBook = new AddressBook();
-            addressBook.Address();
+            addressBook.AddContact();
             addressBook.Display();
 
 
