@@ -37,6 +37,11 @@
                         Console.WriteLine("Add multiple contact");
                         addressBook.Delete();
                         break;
+                      case 5:
+                        Console.WriteLine("Enter name:");
+                        string name = Console.ReadLine();
+                        addressBook.NameExists(name);
+                        break;    
 
                     case 0:
                         check = false; break;
