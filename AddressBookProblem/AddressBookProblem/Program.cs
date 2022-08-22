@@ -38,11 +38,15 @@
                         addressBook.Delete();
                         break;
                       case 5:
-                        Console.WriteLine("Enter name:");
+                         Console.WriteLine("Unique name");
+                        addressBook.Adduniquecontacts();
+                        break;
+                       
+                    case 6:
+                      Console.WriteLine("Enter name:");
                         string name = Console.ReadLine();
                         addressBook.NameExists(name);
-                        break;    
-
+                        break;  
                     case 0:
                         check = false; break;
                 }
