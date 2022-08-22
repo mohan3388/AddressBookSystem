@@ -9,6 +9,7 @@ namespace AddressBookProblem
     public class AddressBook
     {
         List<Contact> addContact = new List<Contact>();
+        Dictionary<string, List<Contact>> dictName = new Dictionary<string, List<Contact>>();
         public void AddContact()
         {
 
@@ -164,6 +165,39 @@ namespace AddressBookProblem
                 numberOfContacts--;
             }
         }
-
+        public void Adduniquecontacts()
+        {
+            Console.WriteLine("Enter the Firstname in your contactlist");
+            string name = Console.ReadLine();
+            foreach (var data in addContact)
+            {
+                if (addContact.Contains(data))
+                {
+                    if (data.FirstName == name)
+                    {
+                        Console.WriteLine("This contact exists please enter an unique name to store this data");
+                        string uniquename = Console.ReadLine();
+                        if (dictName.ContainsKey(uniquename))
+                        {
+                            Console.WriteLine("This unique name already exists");
+                        }
+                        dictName.Add(uniquename, addContact);
+                        return;
+                    }
+                }
+            }
+            Display();
+        }
+        public bool NameExists(string name)
+        {
+            foreach (var dictionary in dictName.Keys)
+            {
+                if (dictionary.Equals(name))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }

@@ -10,7 +10,7 @@
            AddressBook addressBook = new AddressBook();
             Console.WriteLine("Please Enter the Information");
             bool check = true;
-            Console.WriteLine("1.Display\n2.Edit\n3.Delete\n4.Add Multiple person\n");
+            Console.WriteLine("1.Display\n2.Edit\n3.Delete\n4.Add Multiple person\n5.Check unique name\n6. check No Duplicate");
 
             while (check)
             {
@@ -37,7 +37,15 @@
                         Console.WriteLine("Add multiple contact");
                         addressBook.Delete();
                         break;
-
+                    case 5:
+                        Console.WriteLine("Unique name");
+                        addressBook.Adduniquecontacts();
+                        break;
+                    case 6:
+                        Console.WriteLine("Enter name:");
+                        string name = Console.ReadLine();
+                        addressBook.NameExists(name);
+                        break;
                     case 0:
                         check = false; break;
                 }
