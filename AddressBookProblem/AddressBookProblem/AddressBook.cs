@@ -199,5 +199,16 @@ namespace AddressBookProblem
             }
             return false;
         }
+        public void SearchingPersonInCity(string cityName)
+        {
+            foreach (var contact in addContact)
+            {
+                if (contact.City.Equals(cityName))
+                {
+                    Console.WriteLine(contact.FirstName + " " + contact.LastName + " " + contact.Address + " " + contact.City + " " + contact.State + " " + contact.Email + " " + " " + contact.Zip + " " + contact.Mobile);
+                }
+
+            }
+        }
     }
 }
