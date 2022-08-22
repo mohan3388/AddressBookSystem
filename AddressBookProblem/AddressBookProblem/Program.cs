@@ -8,9 +8,10 @@
 
             
            AddressBook addressBook = new AddressBook();
+            Contact contact = new Contact();
             Console.WriteLine("Please Enter the Information");
             bool check = true;
-            Console.WriteLine("1.Display\n2.Edit\n3.Delete\n4.Add Multiple person\n5.Check unique name\n6. check No Duplicate\n7.Check person by City");
+            Console.WriteLine("1.Display\n2.Edit\n3.Delete\n4.Add Multiple person\n5.Check unique name\n6. check No Duplicate\n7.Check person by City\n8. search person by City name");
 
             while (check)
             {
@@ -51,8 +52,15 @@
                         string City = Console.ReadLine();
                         addressBook.SearchingPersonInCity(City);
                         break;
-                    case 0:
-                        check = false; break;
+                    case 8:
+                        Console.WriteLine("Enter city and view persons by city Dictionary ");
+                        string city = Console.ReadLine();
+                        addressBook.MaintainDictionaryWithCityAndPerson(city);
+                        break;
+                    
+                    default:
+                        check = false;
+                        break;
                 }
 
             }

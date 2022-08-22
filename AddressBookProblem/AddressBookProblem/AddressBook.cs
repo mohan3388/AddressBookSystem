@@ -10,6 +10,7 @@ namespace AddressBookProblem
     {
         List<Contact> addContact = new List<Contact>();
         Dictionary<string, List<Contact>> dictName = new Dictionary<string, List<Contact>>();
+        Dictionary<string, string> cityPerson = new Dictionary<string, string>();
         public void AddContact()
         {
 
@@ -208,6 +209,22 @@ namespace AddressBookProblem
                     Console.WriteLine(contact.FirstName + " " + contact.LastName + " " + contact.Address + " " + contact.City + " " + contact.State + " " + contact.Email + " " + " " + contact.Zip + " " + contact.Mobile);
                 }
 
+            }
+        }
+        public void MaintainDictionaryWithCityAndPerson(string cityName)
+        {
+            cityPerson.Add("Ajay", "Basti");
+            cityPerson.Add("Vijay", "Basti");
+            cityPerson.Add("Raj", "Lucknow");
+            cityPerson.Add("Ritesh", "Allahabad");
+            cityPerson.Add("Aman", "Basti");
+            cityPerson.Add("Anuragh", "Banaras");
+            foreach (var contact in cityPerson)
+            {
+                if (contact.Value.Equals(cityName))
+                {
+                    Console.WriteLine(contact.Key + " " + contact.Value);
+                }
             }
         }
     }
