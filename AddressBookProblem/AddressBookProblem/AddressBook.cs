@@ -227,5 +227,15 @@ namespace AddressBookProblem
                 }
             }
         }
+        public void GetNumberByCity(string cityName)
+        {
+            foreach (var contact in addContact)
+            {
+                if (contact.City.Equals(cityName))
+                {
+                    Console.WriteLine("Mobile Number is" + contact.Mobile);
+                }
+            }
+        }
     }
 }

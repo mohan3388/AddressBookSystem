@@ -57,7 +57,12 @@
                         string city = Console.ReadLine();
                         addressBook.MaintainDictionaryWithCityAndPerson(city);
                         break;
-                    
+                    case 9:
+                        Console.WriteLine("Get Person Phone number by City");
+
+                        string Cityname = Console.ReadLine();
+                        addressBook.PhoneNumberByCity(Cityname);
+                        break;
                     default:
                         check = false;
                         break;
