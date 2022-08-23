@@ -11,7 +11,7 @@
             Contact contact = new Contact();
             Console.WriteLine("Please Enter the Information");
             bool check = true;
-            Console.WriteLine("1.Display\n2.Edit\n3.Delete\n4.Add Multiple person\n5.Check unique name\n6. check No Duplicate\n7.Check person by City\n8. search person by City name\n9.Get contact number by city\n10.Sort the person name\n");
+            Console.WriteLine("1.Display\n2.Edit\n3.Delete\n4.Add Multiple person\n5.Check unique name\n6. check No Duplicate\n7.Check person by City\n8. search person by City name\n9.Get contact number by city\n10.Sort the person name\n11.Sort the City, state or Zip");
 
             while (check)
             {
@@ -59,7 +59,6 @@
                         break;
                     case 9:
                         Console.WriteLine("Get Person Phone number by City");
-
                         string Cityname = Console.ReadLine();
                         addressBook.GetNumberByCity(Cityname);
                         break;
@@ -67,7 +66,10 @@
                         Console.WriteLine("Sort the Person name");
                         addressBook.SortPersonName();
                         break;
-
+                    case 11:
+                        Console.WriteLine("Sort the City, State or Zip");
+                        addressBook.SortCityorState();
+                        break;
                     default:
                         check = false;
                         break;

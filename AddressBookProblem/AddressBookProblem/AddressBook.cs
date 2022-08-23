@@ -246,5 +246,14 @@ namespace AddressBookProblem
 
             }
         }
+        public void SortCityorState()
+        {
+            var result = this.addContact.OrderBy(x => x.City).ToList();
+            foreach (var contact in result)
+            {
+                Console.WriteLine(contact.FirstName + " " + contact.LastName + " " + contact.Address + " " + contact.City + " " + contact.State + " " + contact.Email + " " + " " + contact.Zip + " " + contact.Mobile);
+
+            }
+        }
     }
 }
