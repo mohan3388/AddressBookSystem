@@ -11,6 +11,7 @@ namespace AddressBookProblem
         List<Contact> addContact = new List<Contact>();
         Dictionary<string, List<Contact>> dictName = new Dictionary<string, List<Contact>>();
         Dictionary<string, string> cityPerson = new Dictionary<string, string>();
+        string File_Path = @"F:\Dotnet2\AddressBookSystem\AddressBookProblem\AddressBookProblem\ReadFile.txt";
         public void AddContact()
         {
 
@@ -253,6 +254,25 @@ namespace AddressBookProblem
             {
                 Console.WriteLine(contact.FirstName + " " + contact.LastName + " " + contact.Address + " " + contact.City + " " + contact.State + " " + contact.Email + " " + " " + contact.Zip + " " + contact.Mobile);
 
+            }
+        }
+        public void ReadIOFile()
+        {
+            if (File.Exists(File_Path))
+            {
+                StreamReader read = new StreamReader(File_Path);
+                try
+                {
+                    string s = "";
+                    while ((s = read.ReadLine()) != null)
+                    {
+                        Console.WriteLine(s);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
     }
