@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -272,6 +274,29 @@ namespace AddressBookProblem
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
+                }
+            }
+        }
+        public void ImplementCSVHandling()
+        {
+            string importFile = @"F:\Dotnet2\AddressBookSystem\AddressBookProblem\AddressBookProblem\ReadCSVFile.csv";
+            string exportFile = @"F:\Dotnet2\AddressBookSystem\AddressBookProblem\AddressBookProblem\WriteCSVFile.csv";
+
+            using(var reader= new StreamReader(importFile))
+                using(var CSV= new CsvReader(reader,CultureInfo.InvariantCulture))
+            {
+                var records = CSV.GetRecords<Contact>().ToList();
+                Console.WriteLine("Read data successfully");
+                foreach(Contact contact in records)
+                {
+                    Console.WriteLine(contact.FirstName + " " + contact.LastName + " " + contact.Address + " " + contact.City + contact.State + " " + contact.Zip + " " + contact.Mobile + " " + contact.Email);
+                }
+                Console.WriteLine("Reading CSV Files");
+
+                using (var writer = new StreamWriter(exportFile))
+                using (var csvexport = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    csvexport.WriteRecords(records);
                 }
             }
         }
