@@ -300,5 +300,31 @@ namespace AddressBookProblem
                 }
             }
         }
+         public void ImplementHandlingJson()
+        {
+            string importFile = @"F:\Dotnet2\AddressBookSystem\AddressBookProblem\AddressBookProblem\ReadjsonFile.json";
+            string exportFile = @"F:\Dotnet2\AddressBookSystem\AddressBookProblem\AddressBookProblem\WritejsonFile.json";
+
+            using (var reader = new StreamReader(importFile))
+            using (var CSV = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                var records = CSV.GetRecords<Contact>().ToList();
+                Console.WriteLine("Read data successfully");
+                foreach (Contact contact in records)
+                {
+                    Console.WriteLine(contact.FirstName + " " + contact.LastName + " " + contact.Address + " " + contact.City + contact.State + " " + contact.Zip + " " + contact.Mobile + " " + contact.Email);
+                }
+                Console.WriteLine("Reading CSV Files");
+
+                JsonSerializer serializer = new JsonSerializer();
+                using (var writer = new StreamWriter(exportFile))
+                {
+                    using (var jsonWriter = new JsonTextWriter(writer))
+                    {
+                        serializer.Serialize(writer, records);
+
+                    }
+                }
+            }
     }
 }
