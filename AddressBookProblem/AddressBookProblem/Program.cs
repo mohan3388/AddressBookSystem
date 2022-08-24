@@ -11,7 +11,7 @@
             Contact contact = new Contact();
             Console.WriteLine("Please Enter the Information");
             bool check = true;
-            Console.WriteLine("1.Display\n2.Edit\n3.Delete\n4.Add Multiple person\n5.Check unique name\n6. check No Duplicate\n7.Check person by City\n8. search person by City name\n9.Get contact number by city\n10.Sort the person name\n11.Sort the City, state or Zip\n12.Read or write File\n13.Read write Data using CSV File");
+            Console.WriteLine("1.Display\n2.Edit\n3.Delete\n4.Add Multiple person\n5.Check unique name\n6. check No Duplicate\n7.Check person by City\n8. search person by City name\n9.Get contact number by city\n10.Sort the person name\n11.Sort the City, state or Zip\n12.Read or write File\n13.Read write Data using CSV File\n14.Read write Data using CSV File\n");
 
             while (check)
             {
@@ -77,6 +77,9 @@
                     case 13:
                         Console.WriteLine("");
                         addressBook.ImplementCSVHandling();
+                        break;
+                     case 14:
+                         addressBook.ImplementHandlingJson();
                         break;
                     default:
                         check = false;
