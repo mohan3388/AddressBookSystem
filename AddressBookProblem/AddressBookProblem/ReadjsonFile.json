@@ -1,10 +1,32 @@
-{
-  "exclude": [
-    "**/bin",
-    "**/bower_components",
-    "**/jspm_packages",
-    "**/node_modules",
-    "**/obj",
-    "**/platforms"
-  ]
-}
+[
+  {
+    "FirstName": "Mohan",
+    "LastName": "Sahu",
+    "Address": "Kanhera",
+    "City": "Bemetara",
+    "State": "Chhattisgarh",
+    "Email": "sahumoh123@gmail.com",
+    "Zip": "491132",
+    "Mobile": "62548752021"
+  },
+  {
+    "FirstName": "Govind",
+    "LastName": "Bhatt",
+    "Address": "Pandariya",
+    "City": "Kawardha",
+    "State": "Chhattisgarh",
+    "Email": "rajsa12@gmail.com",
+    "Zip": "754890",
+    "Mobile": "9208102054"
+  },
+  {
+    "FirstName": "Churamani",
+    "LastName": "Kumar",
+    "Address": "Baloda",
+    "City": "Raipur",
+    "State": "MadhyaPradesh",
+    "Email": "chura54@gmail.com",
+    "Zip": "215487",
+    "Mobile": "9652102054"
+  }
+]
