@@ -1,9 +1,11 @@
 ﻿using CsvHelper;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+
 using System.Threading.Tasks;
 
 namespace AddressBookProblem
@@ -298,6 +300,46 @@ namespace AddressBookProblem
                 {
                     csvexport.WriteRecords(records);
                 }
+            }
+        }
+        public void ImplementHandlingJson()
+        {
+            string importFile = @"F:\Dotnet2\AddressBookSystem\AddressBookProblem\AddressBookProblem\ReadjsonFile.json";
+            string exportFile = @"F:\Dotnet2\AddressBookSystem\AddressBookProblem\AddressBookProblem\WritejsonFile.json";
+
+            using (var reader = new StreamReader(importFile))
+            using (var CSV = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                var records = CSV.GetRecords<Contact>().ToList();
+                Console.WriteLine("Read data successfully");
+                foreach (Contact contact in records)
+                {
+                    Console.WriteLine(contact.FirstName + " " + contact.LastName + " " + contact.Address + " " + contact.City + contact.State + " " + contact.Zip + " " + contact.Mobile + " " + contact.Email);
+                }
+                Console.WriteLine("Reading CSV Files");
+
+                JsonSerializer serializer = new JsonSerializer();
+                using (var writer = new StreamWriter(exportFile))
+                {
+                    using (var jsonWriter = new JsonTextWriter(writer))
+                    {
+                        serializer.Serialize(writer, records);
+
+                    }
+                }
+            }
+        }
+        public void ImplementJsontoJson()
+        {
+            string exportjson = @"F:\Dotnet2\AddressBookSystem\AddressBookProblem\AddressBookProblem\ReadjsonFile.json";
+            string CopyFilepath = @"F:\Dotnet2\AddressBookSystem\AddressBookProblem\AddressBookProblem\WritejsonFile.json";
+            IList<Contact> addresses = JsonConvert.DeserializeObject<IList<Contact>>(exportjson);
+            Console.WriteLine("Now creating file");
+            JsonSerializer serializer = new JsonSerializer();
+            using (StreamWriter sw = new StreamWriter(CopyFilepath))
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                serializer.Serialize(writer, addresses);
             }
         }
     }
